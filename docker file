@@ -1,0 +1,14 @@
+# نبدأ من صورة دوكر فيها C++ compiler جاهز
+FROM gcc:latest
+
+# نحدد مكان العمل داخل الcontainer
+WORKDIR /app
+
+# ننسخ الكود (main.cpp) من جهازك للcontainer
+COPY main.cpp .
+
+# نعمل compile للكود
+RUN g++ main.cpp -o myprogram
+
+# نحدد البرنامج اللي يشتغل لما نعمل run للcontainer
+CMD ["./myprogram"]
